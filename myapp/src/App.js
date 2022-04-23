@@ -7,16 +7,38 @@ import Topbar from './components/topBar.jsx';
 import OptionsBar from './components/optionsBar.jsx';
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      today: true,
+      hourly: false,
+      seven: false
+    }
+    this.getCurrentWeather = this.getCurrentWeather.bind(this);
+  }
+
+  getCurrentWeather(lat, lon) {
+    fetch('http://localhost:3000/getWeather')
+      .then((res)=> {
+        console.log(res)
+      })
+      .catch((err)=> {
+        console.log(err)
+      })
+  }
+
   render() {
     const { name } = this.props;
     return (
-      <>
-        <Topbar />
+      <div className="app_container">
+        <Topbar
+          getCurrentWeather={this.getCurrentWeather}
+        />
         <OptionsBar />
         <SevenDayForecast />
         <HourlyForecast />
         <TodaysForecast />
-      </>
+      </div>
     );
   }
 }

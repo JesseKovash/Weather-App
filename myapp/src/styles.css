@@ -1,4 +1,14 @@
-h1 {
-  color: white;
-  background-color: black;
+.topbar_container {
+  background-color: green;
+}
+
+.options_container {
+  background-color: red;
+  display: flex;
+}
+
+.option {
+  background-color: aqua;
+  padding: 5px;
+  margin: 10px;
 }
