@@ -25,7 +25,7 @@ class App extends React.Component {
     this.onLocationChange = this.onLocationChange.bind(this);
   }
 
-  debouncedLog = debounce(city => this.getLocations(city), 300)
+  debouncedLog = debounce(city => this.getLocations(city), 200)
 
   handleChange(event) {
     this.setState({

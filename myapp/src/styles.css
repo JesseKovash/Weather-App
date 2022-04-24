@@ -44,10 +44,11 @@ input {
   border-radius: 18px;
   background-color: #9E95B1;
   color: white;
+  text-indent: 60px;
+  outline: none;
 }
 
 input::placeholder {
-  padding-left: 60px;
   font-size: 1rem;
   color: white;
 }
