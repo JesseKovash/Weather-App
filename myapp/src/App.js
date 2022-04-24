@@ -80,11 +80,12 @@ class App extends React.Component {
           // getCurrentWeather={this.getCurrentWeather}
           handleChange={this.handleChange}
           onLocationChange={this.onLocationChange}
+          locations={this.state.locations}
         />
+        <div className="past_locations_container"></div>
         <OptionsBar />
         <SevenDayForecast
-          locations={this.state.locations}
-          onLocationChange={this.onLocationChange}
+          // onLocationChange={this.onLocationChange}
         />
         <HourlyForecast />
         <TodaysForecast />
