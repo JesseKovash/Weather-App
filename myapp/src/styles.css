@@ -59,6 +59,7 @@ input::placeholder {
   width: 100%;
   margin-top: 5px;
   border-radius: 5px;
+  box-shadow: 1px 1px 2px 1px lightgrey;
 }
 
 .location_option {
@@ -89,10 +90,6 @@ input::placeholder {
   margin-bottom: 3px;
 }
 
-/* .options_container:hover {
-  border-bottom: white solid 3px;
-} */
-
 .option {
   color: white;
   padding: 0 40px 3px 40px;
@@ -100,10 +97,15 @@ input::placeholder {
   display: flex;
   align-items: center;
   font-size: 1rem;
+  position: relative;
 }
-/*
+
 .option:hover:after {
-  background-color: green;
-  width: 30px;
+  content: "";
+  background-color: white;
+  width: 80%;
   height: 5px;
-} */
+  position: absolute;
+  top: calc(100% - 5px);
+  left: 10%;
+}
