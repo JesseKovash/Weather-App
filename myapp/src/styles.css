@@ -87,7 +87,6 @@ input::placeholder {
   background-color: #433d52;
   display: flex;
   align-items: center;
-  margin-bottom: 3px;
 }
 
 .option {
@@ -108,4 +107,52 @@ input::placeholder {
   position: absolute;
   top: calc(100% - 5px);
   left: 10%;
+}
+
+.today_container {
+  border-radius: 10px;
+  width: 60%;
+  overflow: hidden;
+  text-indent: 10px;
+  box-shadow: 1px 1px 7px 1px #9E95B1;
+}
+
+.bottom_container {
+  background-image: linear-gradient(#9E95B1, white);
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.today_header {
+  background-image: linear-gradient(90deg, #59516e, #9E95B1, #59516e);
+  height: 50px;
+  color: white;
+  font-size: 1.6rem;
+  line-height: 50px;
+}
+
+span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+
+.today_details_container {
+  background-image: linear-gradient(90deg, #9E95B1, #B3ADC2, #9E95B1 );
+}
+
+.today_details h2 {
+  color: white;
+  font-size: 8rem;
+  margin: 0;
+  font-weight: 400;
+}
+
+.today_details h3 {
+  color: white;
+  font-size: 2rem;
+  margin: 0;
+  font-weight: 400;
 }
