@@ -7,6 +7,64 @@ var app = express()
 app.use(cors())
 const port = 3000
 
+const abbreviations = {
+  Alabama: 'AL',
+  Alaska: 'AK',
+  Arizona: 'AZ',
+  Arkansas: 'AR',
+  California: 'CA',
+  Colorado: 'CO',
+  Connecticut: 'CT',
+  Deleware: 'DE',
+  Florida: 'FL',
+  Georgia: 'GA',
+  Hawaii: 'HI',
+  Idaho: 'ID',
+  Illinois: 'IL',
+  Indiana: 'IN',
+  Iowa: 'IA',
+  Kansas: 'KS',
+  Kentucky: 'KY',
+  Louisiana: 'LA',
+  Maine: 'ME',
+  Maryland: 'MD',
+  Massachusetts: 'MA',
+  Michigan: 'MI',
+  Minnesota: 'MN',
+  Mississippi: 'MS',
+  Missouri: 'MO',
+  Montana: 'MT',
+  Nebraska: 'NE',
+  Nevada: 'NV',
+  'New Hampshire': 'NH',
+  'New Jersey': 'NJ',
+  'New Mexico': 'NM',
+  'New York': 'NY',
+  'North Carolina': 'NC',
+  'North Dakota': 'ND',
+  Ohio: 'OH',
+  Oklahoma: 'OK',
+  Oregon: 'OR',
+  Pennsylvania: 'PA',
+  'Rhode Island': 'RI',
+  'South Carolina': 'SC',
+  'South Dakota': 'SD',
+  Tennessee: 'TN',
+  Texas: 'TX',
+  Utah: 'UT',
+  Vermont: 'VT',
+  Virginia: 'VA',
+  Washington: 'WA',
+  'West Virginia': 'WV',
+  Wisconsin: 'WI',
+  Wyoming: 'WY'
+}
+
+const stateAbbrev = function(state) {
+  let abbreviation = abbreviations[state]
+  return abbreviation
+}
+
 app.get('/getWeather', (req, res) => {
   let lat = "22";
   let lon = "33";
@@ -25,9 +83,10 @@ app.get('/getWeather', (req, res) => {
 })
 
 app.get('/location', (req, res) => {
-  console.log('getting locations')
+  // console.log('getting locations')
   Geo(req.query.searchTerm)
     .then((data)=> {
+      // console.log(data)
       let cityOptions = [];
 
       data.forEach((result) => {
@@ -38,6 +97,8 @@ app.get('/location', (req, res) => {
           && result.longitude !== undefined) {
           cityOptions.push(
             {
+              city: result.city,
+              state: stateAbbrev(result.state),
               address: result.formattedAddress,
               latitude: result.latitude,
               longitude: result.longitude

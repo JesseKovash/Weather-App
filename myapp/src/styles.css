@@ -133,6 +133,11 @@ input::placeholder {
   line-height: 50px;
 }
 
+.today_time {
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
 span {
   display: inline-block;
   vertical-align: middle;

@@ -35,13 +35,11 @@ class App extends React.Component {
   }
 
   getLocations(cityInfo) {
-    console.log('cityinfo: ', cityInfo)
     fetch(`http://localhost:3000/location/?searchTerm=${cityInfo}`)
       .then((res) => {
         return res.json()
       })
       .then((data) => {
-        console.log('data returned: ', data)
         this.setState({
           locations: data
         })
@@ -61,7 +59,20 @@ class App extends React.Component {
         return res.json()
       })
       .then((data) => {
-        console.log(locationData)
+        let time = new Date();
+        let hours = time.getHours();
+        let minutes = time.getMinutes();
+        let amOrPM;
+        minutes = minutes >=10 ? minutes : `0${minutes}`;
+        if (hours > 12) {
+          amOrPM = 'PM';
+          hours = hours - 12;
+        } else if (hours === 12) {
+          amOrPM = 'PM';
+        } else {
+          amOrPM = 'AM';
+        }
+        data.retrievedTime = `${hours}:${minutes} ${amOrPM}`
         this.setState({
           weatherInfo: data,
           currentLocation: locationData
@@ -86,7 +97,10 @@ class App extends React.Component {
         <div className="bottom_container">
           <SevenDayForecast/>
           <HourlyForecast />
-          <TodaysForecast />
+          <TodaysForecast
+            currentLocation={this.state.currentLocation}
+            weatherInfo={this.state.weatherInfo}
+          />
         </div>
       </div>
     );

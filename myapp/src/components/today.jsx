@@ -1,11 +1,18 @@
 import React from "react";
 import { hot } from 'react-hot-loader/root';
 
-function TodaysForecast() {
+function TodaysForecast(props) {
+  let locInfo = null;
+  let timeInfo = null;
+  if (props.currentLocation !== null) {
+    locInfo = `${props.currentLocation.city}, ${props.currentLocation.state}`;
+    timeInfo = `As of ${props.weatherInfo.retrievedTime}`
+  }
+  console.log(props.weatherInfo)
   return (
     <div className="today_container">
       <header className="today_header">
-        <span>Dickinson, ND as of 2:11 MDT</span>
+        <span>{locInfo}</span><span className="today_time">{timeInfo}</span>
         </header>
       <div className="today_details_container">
         <div className="today_details">
