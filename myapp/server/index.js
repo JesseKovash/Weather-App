@@ -5,7 +5,7 @@ const {weatherAccess} = require('../config.js');
 const {Geo} = require('../geocoder/geo.js')
 var app = express()
 app.use(cors())
-const port = 3000
+const port = 3001
 
 const abbreviations = {
   Alabama: 'AL',

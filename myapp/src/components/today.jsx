@@ -8,7 +8,7 @@ function TodaysForecast(props) {
     locInfo = `${props.currentLocation.city}, ${props.currentLocation.state}`;
     timeInfo = `As of ${props.weatherInfo.retrievedTime}`
   }
-  console.log(props.weatherInfo)
+
   return (
     <div className="today_container">
       <header className="today_header">
