@@ -14,11 +14,24 @@ function App(props) {
   const [hourly, setHourly] = useState(false);
   const [seven, setSeven] = useState(false);
   const [currentLocation, setCurrentLocation] = useState(null);
-  const [weatherInfo, setWeatherInfo] = useState(null)
+  const [weatherInfo, setWeatherInfo] = useState(null);
+  const [tempScale, setTempScale] = useState('F');
+
+  const toFahrenheit = function (kelvin) {
+    return Math.round((kelvin - 273.15) * 9/5 + 32)
+  }
+
+  const toCelsius = function (kelvin) {
+    return Math.round(kelvin - 273.15)
+  }
 
   const debouncedLog = useCallback(
     debounce(city => getLocations(city), 200), []
   );
+
+  const changeTempScale = function() {
+    tempScale === 'F' ? setTempScale('C') : setTempScale('F');
+  }
 
   const handleChange = function (event) {
     setSearchInput(event.target.value)
@@ -43,7 +56,7 @@ function App(props) {
   }
 
   const getCurrentWeather = function (lat, lon, locationData) {
-    fetch('http://localhost:3001/getWeather')
+    fetch(`http://localhost:3001/getWeather/?lat=${lat}&lon=${lon}`)
       .then((res) => {
         return res.json()
       })
@@ -85,6 +98,9 @@ function App(props) {
           <TodaysForecast
             currentLocation={currentLocation}
             weatherInfo={weatherInfo}
+            toFahrenheit={toFahrenheit}
+            toCelsius={toCelsius}
+            tempScale={tempScale}
           />
         </div>
       </div>

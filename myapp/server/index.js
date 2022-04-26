@@ -66,8 +66,8 @@ const stateAbbrev = function(state) {
 }
 
 app.get('/getWeather', (req, res) => {
-  let lat = "22";
-  let lon = "33";
+  let lat = req.query.lat;
+  let lon = req.query.lon;
   axios.get(
     `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${weatherAccess}`
   )
