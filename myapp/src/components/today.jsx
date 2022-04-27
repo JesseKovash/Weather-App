@@ -17,6 +17,7 @@ function TodaysForecast() {
   let tempDisplay = '';
   let dayTempDisplay = '';
   let nightTempDisplay = '';
+  let displayModal = '';
 
   if (temp !== '') {
     tempDisplay = Values.tempScale === 'F' ?
@@ -36,7 +37,9 @@ function TodaysForecast() {
 
   if (Values.currentLocation !== null) {
     locInfo = `${Values.currentLocation.city}, ${Values.currentLocation.state}`;
-    timeInfo = `As of ${Values.weatherInfo.retrievedTime}`
+    timeInfo = `As of ${Values.weatherInfo.retrievedTime}`;
+  } else {
+    return <React.Fragment/>;
   }
 
   return (

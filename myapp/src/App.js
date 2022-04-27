@@ -79,6 +79,8 @@ function App(props) {
         data.retrievedTime = `${hours}:${minutes} ${amOrPM}`
         setWeatherInfo(data)
         setCurrentLocation(locationData)
+        setSearchInput('')
+        setLocations([])
       })
       .catch((err) => {
         console.log(err)
@@ -98,6 +100,7 @@ function App(props) {
         handleChange={handleChange}
         onLocationChange={onLocationChange}
         locations={locations}
+        searchInput={searchInput}
       />
       <div className="past_locations_container"></div>
       <OptionsBar />

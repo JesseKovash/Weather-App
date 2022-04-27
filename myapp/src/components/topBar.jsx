@@ -18,7 +18,7 @@ function Topbar(props) {
         <p className="logo_p">Weather</p>
       </div>
       <div className="search_container">
-        <input type="text" className="search_input" placeholder="Search City or Zip Code" onChange={(event) => props.handleChange(event)}></input>
+        <input type="text" className="search_input" placeholder="Search City or Zip Code" onChange={(event) => props.handleChange(event)} value={props.searchInput}></input>
         {displayedLocs}
       </div>
       <div className="c_or_f">
