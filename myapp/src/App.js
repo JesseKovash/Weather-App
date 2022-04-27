@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useContext } from "react";
 import { hot } from 'react-hot-loader/root';
 import { debounce } from "lodash";
 import SevenDayForecast from './components/sevenDay.jsx';
@@ -6,6 +6,8 @@ import HourlyForecast from './components/hourly.jsx';
 import TodaysForecast from './components/today.jsx';
 import Topbar from './components/topBar.jsx';
 import OptionsBar from './components/optionsBar.jsx';
+
+export const LocationContext = React.createContext();
 
 function App(props) {
   const [searchInput, setSearchInput] = useState('');
@@ -18,7 +20,7 @@ function App(props) {
   const [tempScale, setTempScale] = useState('F');
 
   const toFahrenheit = function (kelvin) {
-    return Math.round((kelvin - 273.15) * 9/5 + 32)
+    return Math.round((kelvin - 273.15) * 9 / 5 + 32)
   }
 
   const toCelsius = function (kelvin) {
@@ -29,7 +31,7 @@ function App(props) {
     debounce(city => getLocations(city), 200), []
   );
 
-  const changeTempScale = function() {
+  const changeTempScale = function () {
     tempScale === 'F' ? setTempScale('C') : setTempScale('F');
   }
 
@@ -82,28 +84,34 @@ function App(props) {
         console.log(err)
       })
   }
+  let valueObj = {
+    currentLocation: currentLocation,
+    weatherInfo: weatherInfo,
+    toFahrenheit: toFahrenheit,
+    toCelsius: toCelsius,
+    tempScale: tempScale
+  }
 
-    return (
-      <div className="app_container">
-        <Topbar
-          handleChange={handleChange}
-          onLocationChange={onLocationChange}
-          locations={locations}
-        />
-        <div className="past_locations_container"></div>
-        <OptionsBar />
-        <div className="bottom_container">
-          <SevenDayForecast />
-          <HourlyForecast />
-          <TodaysForecast
-            currentLocation={currentLocation}
-            weatherInfo={weatherInfo}
-            toFahrenheit={toFahrenheit}
-            toCelsius={toCelsius}
-            tempScale={tempScale}
-          />
-        </div>
-      </div>
+  return (
+    <div className="app_container">
+      <Topbar
+        handleChange={handleChange}
+        onLocationChange={onLocationChange}
+        locations={locations}
+      />
+      <div className="past_locations_container"></div>
+      <OptionsBar />
+      <div className="bottom_container">
+      <LocationContext.Provider
+        value={valueObj}
+      >
+        <SevenDayForecast />
+        <HourlyForecast />
+        <TodaysForecast/>
+      </LocationContext.Provider >
+
+    </div>
+      </div >
     );
 }
 

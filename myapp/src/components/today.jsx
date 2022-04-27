@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { hot } from 'react-hot-loader/root';
+import {LocationContext} from '../App.js'
 
-function TodaysForecast(props) {
-  const temp = props.weatherInfo?.current?.temp || '';
-  const descriptionDisplay = props.weatherInfo?.current?.weather[0].description || '';
-  const dayTemp = props.weatherInfo?.daily[0].temp.day ?
-    props.weatherInfo.daily[0].temp.day :
+function TodaysForecast() {
+  const Values = useContext(LocationContext);
+  const temp = Values.weatherInfo?.current?.temp || '';
+  const descriptionDisplay = Values.weatherInfo?.current?.weather[0].description || '';
+  const dayTemp = Values.weatherInfo?.daily[0].temp.day ?
+  Values.weatherInfo.daily[0].temp.day :
     '';
-  const nightTemp = props.weatherInfo?.daily[0].temp.night ?
-    props.weatherInfo.daily[0].temp.night :
+  const nightTemp = Values.weatherInfo?.daily[0].temp.night ?
+  Values.weatherInfo.daily[0].temp.night :
     '';
   let locInfo = '';
   let timeInfo = '';
@@ -17,24 +19,24 @@ function TodaysForecast(props) {
   let nightTempDisplay = '';
 
   if (temp !== '') {
-    tempDisplay = props.tempScale === 'F' ?
-      `${props.toFahrenheit(temp)} ${props.tempScale}` :
-      `${props.toCelsius(temp)} ${props.tempScale}`;
+    tempDisplay = Values.tempScale === 'F' ?
+      `${Values.toFahrenheit(temp)} ${Values.tempScale}` :
+      `${Values.toCelsius(temp)} ${Values.tempScale}`;
   }
 
   if (dayTemp !== '' && nightTemp !== '') {
-    if (props.tempScale === 'F') {
-      dayTempDisplay = `Day ${props.toFahrenheit(props.weatherInfo?.daily[0].temp.day)} `;
-      nightTempDisplay = `Night ${props.toFahrenheit(props.weatherInfo?.daily[0].temp.night)}`;
+    if (Values.tempScale === 'F') {
+      dayTempDisplay = `Day ${Values.toFahrenheit(Values.weatherInfo?.daily[0].temp.day)} `;
+      nightTempDisplay = `Night ${Values.toFahrenheit(Values.weatherInfo?.daily[0].temp.night)}`;
     } else {
-      dayTempDisplay = `Day ${props.toCelsius(props.weatherInfo?.daily[0].temp.day)} `;
-      nightTempDisplay = `Night ${props.toCelsius(props.weatherInfo?.daily[0].temp.night)}`;
+      dayTempDisplay = `Day ${props.toCelsius(Values.weatherInfo?.daily[0].temp.day)} `;
+      nightTempDisplay = `Night ${props.toCelsius(Values.weatherInfo?.daily[0].temp.night)}`;
     }
   }
 
-  if (props.currentLocation !== null) {
-    locInfo = `${props.currentLocation.city}, ${props.currentLocation.state}`;
-    timeInfo = `As of ${props.weatherInfo.retrievedTime}`
+  if (Values.currentLocation !== null) {
+    locInfo = `${Values.currentLocation.city}, ${Values.currentLocation.state}`;
+    timeInfo = `As of ${Values.weatherInfo.retrievedTime}`
   }
 
   return (

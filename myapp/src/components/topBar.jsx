@@ -19,7 +19,6 @@ function Topbar(props) {
       </div>
       <div className="search_container">
         <input type="text" className="search_input" placeholder="Search City or Zip Code" onChange={(event) => props.handleChange(event)}></input>
-        {/* <div className="results_container">{displayedLocs}</div> */}
         {displayedLocs}
       </div>
       <div className="c_or_f">
