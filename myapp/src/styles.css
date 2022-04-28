@@ -161,3 +161,56 @@ span {
   margin: 0;
   font-weight: 400;
 }
+
+.seven_container {
+  box-sizing: border-box;
+  background-color: white;
+  border-radius: 10px;
+  width: 60%;
+  padding: 15px;
+
+}
+
+.seven_top {
+  box-sizing: border-box;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  text-indent: 10px;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.seven_container h2 {
+  color:#59516e;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  margin-top: 0;
+  font-weight: 400;
+}
+
+.seven_container h3 {
+  color: #59516e;
+  font-size: 1rem;
+  margin: 0;
+  font-weight: 300;
+}
+
+h2 span {
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.seven_temp_icon {
+  display: flex;
+  align-items: center;
+  height: 100px;
+}
+
+.seven_today_temp {
+  font-size: 2.8rem;
+}
+
+.seven_today_desc {
+  font-size: 1rem;
+}
