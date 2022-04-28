@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 import { hot } from 'react-hot-loader/root';
-import { LocationContext } from '../App.js'
+import { LocationContext } from '../App.js';
+import FutureDays from './futureDays.jsx'
 
-function SevenDayForecast(props) {
+function SevenDayForecast() {
   const Values = useContext(LocationContext);
   let today;
   let future;
@@ -31,6 +32,7 @@ function SevenDayForecast(props) {
   return (
     <div className="seven_container">
       {today}
+      <FutureDays/>
     </div>
 
   )
