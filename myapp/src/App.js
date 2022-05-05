@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useContext } from "react";
+import React, { useState, useCallback, useContext, useEffect } from "react";
 import { hot } from 'react-hot-loader/root';
 import { debounce } from "lodash";
 import SevenDayForecast from './components/sevenDay.jsx';
@@ -21,7 +21,11 @@ function App(props) {
   const [currentLocation, setCurrentLocation] = useState(null);
   const [weatherInfo, setWeatherInfo] = useState(null);
   const [tempScale, setTempScale] = useState('F');
-  const [currentTime, setCurrentTime] = useState(null);
+  const [dayOptions, setDayOptions] = useState(null);
+
+  useEffect(()=> {
+    getTime()
+  }, [])
 
   const toFahrenheit = function (kelvin) {
     return Math.round((kelvin - 273.15) * 9 / 5 + 32)
@@ -41,6 +45,10 @@ function App(props) {
 
   const getTime = function () {
     let current = new Date();
+    setDayOptions({
+      monthDays: getFutureMonthDays(current),
+      weekDays: getFutureWeekdays(current),
+    })
   }
 
   const handleChange = function (event) {
@@ -99,7 +107,8 @@ function App(props) {
     weatherInfo: weatherInfo,
     toFahrenheit: toFahrenheit,
     toCelsius: toCelsius,
-    tempScale: tempScale
+    tempScale: tempScale,
+    dayOptions: dayOptions
   }
 
   return (

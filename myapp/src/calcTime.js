@@ -26,12 +26,12 @@ const getFutureWeekdays = function(date) {
 const getFutureMonthDays = function(date) {
   let currentMonthDay = date.getDate();
   let futureMonthDays = [];
-  if (currentMonthDay + 7 < numberOfDays(date.getMonth())) {
+  if (currentMonthDay + 7 < numberOfDays(date.getMonth(), date.getFullYear())) {
     for(var i=0; i<=7; i++) {
-      futureMonthDays.push(currentMonthDay + 1);
+      futureMonthDays.push(currentMonthDay + i);
     }
   } else {
-    let currentMonthLength = numberOfDays(date.getMonth());
+    let currentMonthLength = numberOfDays(date.getMonth(), date.getFullYear());
     let dayCount = currentMonthDay;
     while (dayCount <= currentMonthLength) {
       futureMonthDays.push(dayCount);
@@ -48,7 +48,7 @@ const getFutureMonthDays = function(date) {
 
 const numberOfDays = function(month, year) {
   let options = [31,28,31,30,31,30,31,31,30,31,30,31];
-  if (month === 2) {
+  if (month === 1) {
     if (isLeapYear(year)) {
       return 29
     }
