@@ -1,5 +1,5 @@
 const windDirection = function(deg) {
-  let deg = (Math.round(deg / 10)) * 10;
+  deg = (Math.round(deg / 10)) * 10;
   if (deg === 10 || deg === 350 || deg === 360) {
     return 'N'
   }

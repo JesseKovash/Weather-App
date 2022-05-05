@@ -9,7 +9,7 @@ import OptionsBar from './components/optionsBar.jsx';
 import {
   days, getDayOfWeek, getDayOfMonth, getMonth, getYear, getFutureWeekdays, getFutureMonthDays, numberOfDays, isLeapYear
 } from './calcTime.js';
-import { windDirection, windMPH, windKMH } from './calcTime.js'
+import { windDirection, windMPH, windKMH } from './calcWind.js'
 
 export const LocationContext = React.createContext();
 
@@ -109,7 +109,10 @@ function App(props) {
     toFahrenheit: toFahrenheit,
     toCelsius: toCelsius,
     tempScale: tempScale,
-    dayOptions: dayOptions
+    dayOptions: dayOptions,
+    windDirection: windDirection,
+    windMPH: windMPH,
+    windKMH: windKMH
   }
 
   return (

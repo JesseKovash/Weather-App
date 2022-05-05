@@ -8,7 +8,6 @@ function SevenDayForecast() {
   let today;
   let future;
   if (Values.currentLocation !== null) {
-    console.log(Values.dayOptions)
     today =
       <div className="seven_top_container">
         <h2>7 Day Weather
@@ -24,15 +23,25 @@ function SevenDayForecast() {
                 (Values.toCelsius(Values.weatherInfo.current.temp)) + 'C'}
             </p>
             <img src={`http://openweathermap.org/img/wn/${Values.weatherInfo.current.weather[0].icon}@2x.png`}></img>
+            <p className="future_wind">
+              <span className="future_dir">
+                {Values.windDirection(Values.weatherInfo.current.wind_deg) + " "}
+              </span>
+              <span className="future_speed">{
+                Values.tempScale === 'F' ?
+                  (Values.windMPH(Values.weatherInfo.current.wind_speed) + ' mph') :
+                  (Values.windKMH(Values.weatherInfo.current.wind_speed) + ' kmh')}
+              </span>
+            </p>
           </div>
           <p className="seven_today_desc">{Values.weatherInfo.current.weather[0].description}</p>
         </div>
-       </div>
+      </div>
   }
   return (
     <div className="seven_container">
       {today}
-      <FutureDays/>
+      <FutureDays />
     </div>
 
   )

@@ -25,8 +25,18 @@ function FutureDays() {
               (Values.toCelsius(oneDay.temp.min))}
           </span>
         </div>
-        <img src={`http://openweathermap.org/img/wn/${oneDay.weather[0].icon}@2x.png`}></img>
-        <p className="seven_today_desc">{oneDay.weather[0].description}</p>
+        <img className="future_icon" src={`http://openweathermap.org/img/wn/${oneDay.weather[0].icon}@2x.png`}></img>
+        <p className="future_desc">{oneDay.weather[0].description}</p>
+        <p className="future_wind">
+          <span className="future_dir">
+            {Values.windDirection(oneDay.wind_deg) + " "}
+          </span>
+          <span className="future_speed">{
+            Values.tempScale === 'F' ?
+              (Values.windMPH(oneDay.wind_speed) + ' mph') :
+              (Values.windKMH(oneDay.wind_speed) + ' kmh')}
+          </span>
+        </p>
       </div>
     ))
   }
