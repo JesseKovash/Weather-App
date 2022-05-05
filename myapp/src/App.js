@@ -6,6 +6,9 @@ import HourlyForecast from './components/hourly.jsx';
 import TodaysForecast from './components/today.jsx';
 import Topbar from './components/topBar.jsx';
 import OptionsBar from './components/optionsBar.jsx';
+import {
+  days, getDayOfWeek, getDayOfMonth, getMonth, getYear, getFutureWeekdays, getFutureMonthDays, numberOfDays, isLeapYear
+} from './calcTime.js'
 
 export const LocationContext = React.createContext();
 
@@ -18,6 +21,7 @@ function App(props) {
   const [currentLocation, setCurrentLocation] = useState(null);
   const [weatherInfo, setWeatherInfo] = useState(null);
   const [tempScale, setTempScale] = useState('F');
+  const [currentTime, setCurrentTime] = useState(null);
 
   const toFahrenheit = function (kelvin) {
     return Math.round((kelvin - 273.15) * 9 / 5 + 32)
@@ -33,6 +37,10 @@ function App(props) {
 
   const changeTempScale = function () {
     tempScale === 'F' ? setTempScale('C') : setTempScale('F');
+  }
+
+  const getTime = function () {
+    let current = new Date();
   }
 
   const handleChange = function (event) {
