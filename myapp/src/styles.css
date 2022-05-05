@@ -214,3 +214,56 @@ h2 span {
 .seven_today_desc {
   font-size: 1rem;
 }
+
+.future_day {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid black;
+  border-bottom: 1px solid blac
+}
+
+.future_one {
+  font-size: 1rem;
+  font-weight: 200;
+  width: 10%;
+}
+
+.hi_temp {
+  font-size: 1.4rem;
+}
+
+.low_temp {
+  font-size: 1rem;
+  font-weight: 200;
+}
+
+.future_two {
+  width: 10%;
+  display: flex;
+  align-items: center;
+}
+
+.future_three {
+  width: 10%;
+}
+.future_icon {
+  height: 70px;
+}
+
+.future_desc {
+  font-size: 1rem;
+  font-weight: 200;
+}
+
+.future_four {
+  width: 50%;
+}
+
+.future_wind {
+  font-size: 1rem;
+  font-weight: 200;
+}
+
+.future_dir {
+  margin-right: 5px;
+}

@@ -14,22 +14,27 @@ function FutureDays() {
           <p>{Values?.dayOptions?.weekDays[index + 1]} {Values?.dayOptions?.monthDays[index + 1]}</p>
         </div>
         <div className="future_two">
-          <span className="hi_temp">{
+          <p className="hi_temp">{
             Values.tempScale === 'F' ?
               (Values.toFahrenheit(oneDay.temp.max)) :
               (Values.toCelsius(oneDay.temp.max))}/
-          </span>
-          <span className="low_temp"> {
+          </p>
+          <p className="low_temp"> {
             Values.tempScale === 'F' ?
               (Values.toFahrenheit(oneDay.temp.min)) :
               (Values.toCelsius(oneDay.temp.min))}
-          </span>
+          </p>
         </div>
-        <img className="future_icon" src={`http://openweathermap.org/img/wn/${oneDay.weather[0].icon}@2x.png`}></img>
-        <p className="future_desc">{oneDay.weather[0].description}</p>
+        <div className="future_three">
+          <img className="future_icon" src={`http://openweathermap.org/img/wn/${oneDay.weather[0].icon}@2x.png`}></img>
+        </div>
+        <div className="future_four">
+          <p className="future_desc">{oneDay.weather[0].description}</p>
+        </div>
+
         <p className="future_wind">
           <span className="future_dir">
-            {Values.windDirection(oneDay.wind_deg) + " "}
+            {`${Values.windDirection(oneDay.wind_deg)}  `}
           </span>
           <span className="future_speed">{
             Values.tempScale === 'F' ?
