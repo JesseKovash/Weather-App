@@ -10,12 +10,14 @@ function SevenDayForecast() {
   if (Values.currentLocation !== null) {
     today =
       <div className="seven_top_container">
+        <div className="seven_inner_top">
         <h2>7 Day Weather
           <span>-{Values.currentLocation.city}, {Values.currentLocation.state}</span>
         </h2>
         <h3>As of {Values.weatherInfo.retrievedTime}</h3>
+        </div>
         <div className="seven_today_details">
-          <p>{Values?.dayOptions?.weekDays[0]} {Values?.dayOptions?.monthDays[0]}</p>
+          <p className="seven_date">{Values?.dayOptions?.weekDays[0]} {Values?.dayOptions?.monthDays[0]}</p>
           <div className="seven_temp_icon">
             <p className="seven_today_temp">{
               Values.tempScale === 'F' ?

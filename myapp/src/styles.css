@@ -168,17 +168,24 @@ span {
   border-radius: 10px;
   width: 60%;
   padding: 15px;
-
 }
 
-.seven_top {
+.seven_top_container {
   box-sizing: border-box;
   background-color: white;
   border-radius: 10px;
   overflow: hidden;
   text-indent: 10px;
-  padding: 10px;
-  margin-top: 20px;
+}
+
+.seven_inner_top {
+  border-bottom: 1px solid black;
+  padding-bottom: 20px;
+}
+
+.seven_date {
+  font-size: 1rem;
+  margin: 40px 0 5px 0;
 }
 
 .seven_container h2 {
@@ -201,10 +208,14 @@ h2 span {
   font-weight: 300;
 }
 
+.seven_date {
+  font-size: 1rem;
+}
+
 .seven_temp_icon {
   display: flex;
   align-items: center;
-  height: 100px;
+  height: 60px;
 }
 
 .seven_today_temp {
@@ -213,6 +224,7 @@ h2 span {
 
 .seven_today_desc {
   font-size: 1rem;
+  margin-bottom: 30px;
 }
 
 .future_day {
