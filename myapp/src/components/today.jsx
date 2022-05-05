@@ -4,7 +4,6 @@ import {LocationContext} from '../App.js'
 
 function TodaysForecast() {
   const Values = useContext(LocationContext);
-  console.log(Values)
   const temp = Values.weatherInfo?.current?.temp || '';
   const descriptionDisplay = Values.weatherInfo?.current?.weather[0].description || '';
   const dayTemp = Values.weatherInfo?.daily[0].temp.day ?

@@ -8,7 +8,7 @@ function SevenDayForecast() {
   let today;
   let future;
   if (Values.currentLocation !== null) {
-    console.log(Values.weatherInfo)
+    console.log(Values.dayOptions)
     today =
       <div className="seven_top_container">
         <h2>7 Day Weather
@@ -16,7 +16,7 @@ function SevenDayForecast() {
         </h2>
         <h3>As of {Values.weatherInfo.retrievedTime}</h3>
         <div className="seven_today_details">
-          <p>Need to add Today's date</p>
+          <p>{Values?.dayOptions?.weekDays[0]} {Values?.dayOptions?.monthDays[0]}</p>
           <div className="seven_temp_icon">
             <p className="seven_today_temp">{
               Values.tempScale === 'F' ?
