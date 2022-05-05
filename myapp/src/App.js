@@ -8,7 +8,8 @@ import Topbar from './components/topBar.jsx';
 import OptionsBar from './components/optionsBar.jsx';
 import {
   days, getDayOfWeek, getDayOfMonth, getMonth, getYear, getFutureWeekdays, getFutureMonthDays, numberOfDays, isLeapYear
-} from './calcTime.js'
+} from './calcTime.js';
+import { windDirection, windMPH, windKMH } from './calcTime.js'
 
 export const LocationContext = React.createContext();
 
