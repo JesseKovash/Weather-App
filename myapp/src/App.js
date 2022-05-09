@@ -24,9 +24,25 @@ function App(props) {
   const [tempScale, setTempScale] = useState('F');
   const [dayOptions, setDayOptions] = useState(null);
 
-  useEffect(()=> {
+  useEffect(() => {
     getTime()
   }, [])
+
+  const changeDisplay = function (target) {
+    if (target === 'today') {
+      setSeven(false)
+      setToday(true)
+      setHourly(false)
+    } else if (target === 'hourly') {
+      setSeven(false)
+      setToday(false)
+      setHourly(true)
+    } else if (target === 'seven') {
+      setSeven(true)
+      setToday(false)
+      setHourly(false)
+    }
+  }
 
   const toFahrenheit = function (kelvin) {
     return Math.round((kelvin - 273.15) * 9 / 5 + 32)
@@ -112,7 +128,11 @@ function App(props) {
     dayOptions: dayOptions,
     windDirection: windDirection,
     windMPH: windMPH,
-    windKMH: windKMH
+    windKMH: windKMH,
+    today: today,
+    hourly: hourly,
+    seven: seven,
+    changeDisplay: changeDisplay
   }
 
   return (
@@ -123,20 +143,19 @@ function App(props) {
         locations={locations}
         searchInput={searchInput}
       />
-      <div className="past_locations_container"></div>
-      <OptionsBar />
-      <div className="bottom_container">
       <LocationContext.Provider
         value={valueObj}
       >
-        <SevenDayForecast />
-        <HourlyForecast />
-        <TodaysForecast/>
+        <div className="past_locations_container"></div>
+        <OptionsBar />
+        <div className="bottom_container">
+          <SevenDayForecast />
+          <HourlyForecast />
+          <TodaysForecast />
+        </div>
       </LocationContext.Provider >
-
-    </div>
-      </div >
-    );
+    </div >
+  );
 }
 
 export default hot(App);

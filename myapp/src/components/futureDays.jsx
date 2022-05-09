@@ -6,7 +6,6 @@ function FutureDays() {
   const Values = useContext(LocationContext);
   let nextSeven = Values?.weatherInfo?.daily?.slice(1);
   let dayDetails = null;
-  console.log(nextSeven)
   if (nextSeven) {
     dayDetails = nextSeven.map((oneDay, index) => (
       <div className="future_day">
