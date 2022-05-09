@@ -16,7 +16,7 @@ export const LocationContext = React.createContext();
 function App(props) {
   const [searchInput, setSearchInput] = useState('');
   const [locations, setLocations] = useState([]);
-  const [today, setToday] = useState(false);
+  const [today, setToday] = useState(true);
   const [hourly, setHourly] = useState(false);
   const [seven, setSeven] = useState(false);
   const [currentLocation, setCurrentLocation] = useState(null);
