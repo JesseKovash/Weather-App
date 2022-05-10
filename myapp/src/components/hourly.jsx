@@ -19,9 +19,6 @@ function HourlyForecast() {
           </h2>
           <h3>As of {Values.weatherInfo.retrievedTime}</h3>
         </div>
-        {/* <div className="seven_today_details">
-          <p className="seven_date">{Values?.dayOptions?.weekDays[0]} {Values?.dayOptions?.monthDays[0]}</p>
-        </div> */}
         <EachHour hourlyDetails={hourlyDetails} />
       </div>
 

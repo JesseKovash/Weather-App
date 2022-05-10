@@ -28,9 +28,9 @@ function EachHour(props) {
 
     dayOne =
       <div className="hour_day">
-        <span>{fullDays[getDayOfWeek(currentDay)]}, </span>
-        <span>{months[getMonth(currentDay)]}</span>
-        <span>{getDayOfMonth(currentDay)}</span>
+        <span class="time_det">{fullDays[getDayOfWeek(currentDay)]}, </span>
+        <span class="time_det hour_month">{months[getMonth(currentDay)]}</span>
+        <span class="time_det">{getDayOfMonth(currentDay)}</span>
         <div className="oneHr_container">
           {allHours}
         </div>
@@ -56,9 +56,9 @@ function EachHour(props) {
 
     dayTwo =
       <div className="hour_day">
-        <span>{fullDays[getDayOfWeek(currentDay)]}, </span>
-        <span>{months[getMonth(currentDay)]}</span>
-        <span>{getDayOfMonth(currentDay)}</span>
+        <span class="time_det">{fullDays[getDayOfWeek(currentDay)]}, </span>
+        <span class="time_det hour_month">{months[getMonth(currentDay)]}</span>
+        <span class="time_det">{getDayOfMonth(currentDay)}</span>
         <div className="oneHr_container">
           {allHours}
         </div>
@@ -80,9 +80,9 @@ function EachHour(props) {
 
     dayThree =
       <div className="hour_day">
-        <span>{fullDays[getDayOfWeek(currentDay)]}, </span>
-        <span>{months[getMonth(currentDay)]}</span>
-        <span>{getDayOfMonth(currentDay)}</span>
+        <span class="time_det">{fullDays[getDayOfWeek(currentDay)]}, </span>
+        <span class="time_det hour_month">{months[getMonth(currentDay)]}</span>
+        <span class="time_det">{getDayOfMonth(currentDay)}</span>
         <div className="oneHr_container">
           {allHours}
         </div>

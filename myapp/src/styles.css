@@ -162,7 +162,7 @@ span {
   font-weight: 400;
 }
 
-.seven_container {
+.seven_container, .hourly_container {
   box-sizing: border-box;
   background-color: white;
   border-radius: 10px;
@@ -170,16 +170,15 @@ span {
   padding: 15px;
 }
 
-.seven_top_container {
+.seven_top_container, .hourly_top {
   box-sizing: border-box;
   background-color: white;
   border-radius: 10px;
   overflow: hidden;
-  text-indent: 10px;
 }
 
 .seven_inner_top {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #59516e;
   padding-bottom: 20px;
 }
 
@@ -188,7 +187,7 @@ span {
   margin: 40px 0 5px 0;
 }
 
-.seven_container h2 {
+.seven_container h2, .hourly_container h2 {
   color:#59516e;
   font-size: 1.8rem;
   margin-bottom: 10px;
@@ -196,7 +195,7 @@ span {
   font-weight: 400;
 }
 
-.seven_container h3 {
+.seven_container h3, .hourly_container h3 {
   color: #59516e;
   font-size: 1rem;
   margin: 0;
@@ -227,17 +226,20 @@ h2 span {
   margin-bottom: 30px;
 }
 
-.future_day {
+.future_day, .future_hr {
   display: flex;
   align-items: center;
-  border-top: 1px solid black;
-  border-bottom: 1px solid blac
+  border-top: 1px solid #59516e;
 }
 
-.future_one {
+.future_one, .hour_one {
   font-size: 1rem;
   font-weight: 200;
   width: 10%;
+}
+
+.hour_one {
+  width: 15%;
 }
 
 .hi_temp {
@@ -249,33 +251,53 @@ h2 span {
   font-weight: 200;
 }
 
-.future_two {
+.future_two, .hour_two {
   width: 10%;
   display: flex;
   align-items: center;
 }
 
-.future_three {
+.future_three, .hour_three {
   width: 10%;
 }
-.future_icon {
+.future_icon, .hour_icon {
   height: 70px;
 }
 
-.future_desc {
+.future_desc, .hour_desc {
   font-size: 1rem;
   font-weight: 200;
 }
 
-.future_four {
+.future_four, .hour_four {
   width: 50%;
 }
 
-.future_wind {
+.future_wind, .hour_wind {
   font-size: 1rem;
   font-weight: 200;
 }
 
-.future_dir {
+.future_dir, .hour_wind {
   margin-right: 5px;
 }
+
+.hour_day {
+  font-size: 1.4rem;
+  font-weight: 600;
+  border-top: 1px solid #59516e;
+  margin-top: 20px;
+  color: #59516e;
+}
+
+.time_det:first-child, .time_det:last-child {
+  padding: 15px 0;
+}
+
+.hour_month {
+  margin-left: 5px;
+}
+
+
+
+
