@@ -1,41 +1,7 @@
 # Weather-App
-Weather App to deploy on Heroku
 
-## Building and running on localhost
+### Currently Working On This Project
 
-First install dependencies:
+### Stay tuned! Will be deployed in the near future and you'll have all of the weather info you could ever ask for. 
 
-```sh
-npm install
-```
-
-To run in hot module reloading mode:
-
-```sh
-npm start
-```
-
-To create a production build:
-
-```sh
-npm run build-prod
-```
-
-To create a development build:
-
-```sh
-npm run build-dev
-```
-
-## Running
-
-Open the file `dist/index.html` in your browser
-
-## Testing
-
-To run unit tests:
-
-```sh
-npm test
-```
 
