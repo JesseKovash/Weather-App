@@ -57,7 +57,6 @@ function App(props) {
   );
 
   const changeTempScale = function () {
-    console.log('changing temp')
     tempScale === 'F' ? setTempScale('C') : setTempScale('F');
   }
 
@@ -144,6 +143,7 @@ function App(props) {
         onLocationChange={onLocationChange}
         locations={locations}
         searchInput={searchInput}
+        tempScale={tempScale}
         changeTempScale={changeTempScale}
       />
       <LocationContext.Provider

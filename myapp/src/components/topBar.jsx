@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useRef, useEffect }from "react";
 import { hot } from 'react-hot-loader/root';
 
 function Topbar(props) {
-
+  let initialRender = useRef(true);
+  const tempScaleElement = useRef(null);
   let displayedLocs = null;
+
+  useEffect(()=> {
+    if (!initialRender.current) {
+      tempScaleElement.current.innerText = props.tempScale;
+    }
+  }, [props.tempScale])
+
+  useEffect(()=>{
+    initialRender.current = false;
+  }, [])
+
   if (props.locations.length > 0) {
     displayedLocs = <div className="results_container">
       {props.locations?.map((oneLoc) => {
@@ -23,7 +35,11 @@ function Topbar(props) {
       </div>
       <div className="c_or_f">
         <span>US | &deg;</span>
-        <span className="c_f_choice" onClick={props.changeTempScale}>F</span>
+        <span
+        className="c_f_choice"
+        onClick={props.changeTempScale}
+        ref={tempScaleElement}
+        >F</span>
       </div>
     </div>
   )

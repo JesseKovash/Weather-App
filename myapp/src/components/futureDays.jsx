@@ -16,12 +16,12 @@ function FutureDays() {
           <p className="hi_temp">{
             Values.tempScale === 'F' ?
               (Values.toFahrenheit(oneDay.temp.max)) :
-              (Values.toCelsius(oneDay.temp.max))}/
+              (Values.toCelsius(oneDay.temp.max))}&deg;/
           </p>
           <p className="low_temp"> {
             Values.tempScale === 'F' ?
               (Values.toFahrenheit(oneDay.temp.min)) :
-              (Values.toCelsius(oneDay.temp.min))}
+              (Values.toCelsius(oneDay.temp.min))}&deg;
           </p>
         </div>
         <div className="future_three">

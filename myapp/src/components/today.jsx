@@ -26,16 +26,16 @@ function TodaysForecast() {
       '';
     if (temp !== '') {
       tempDisplay = Values.tempScale === 'F' ?
-        `${Values.toFahrenheit(temp)} ${Values.tempScale}` :
-        `${Values.toCelsius(temp)} ${Values.tempScale}`;
+        `${Values.toFahrenheit(temp)}` :
+        `${Values.toCelsius(temp)}`;
     }
 
     if (dayTemp !== '' && nightTemp !== '') {
       if (Values.tempScale === 'F') {
-        dayTempDisplay = `Day ${Values.toFahrenheit(data?.daily[0].temp.day)} `;
+        dayTempDisplay = `Day ${Values.toFahrenheit(data?.daily[0].temp.day)}`;
         nightTempDisplay = `Night ${Values.toFahrenheit(data?.daily[0].temp.night)}`;
       } else {
-        dayTempDisplay = `Day ${Values.toCelsius(data?.daily[0].temp.day)} `;
+        dayTempDisplay = `Day ${Values.toCelsius(data?.daily[0].temp.day)}`;
         nightTempDisplay = `Night ${Values.toCelsius(data?.daily[0].temp.night)}`;
       }
     }
@@ -51,9 +51,10 @@ function TodaysForecast() {
         </header>
         <div className="today_details_container">
           <div className="today_details">
-            <h2 className="today_temp">{tempDisplay}</h2>
+            <h2 className="today_temp">{tempDisplay}&deg;</h2>
             <h3 className="today_desc">{descriptionDisplay}</h3>
-            <h3 className="today_hilo">{`${dayTempDisplay} ${nightTempDisplay}`}</h3>
+            {/* <h3 className="today_hilo">{`${dayTempDisplay} ${nightTempDisplay}`}</h3> */}
+            <h3 className="today_hilo">{`${dayTempDisplay}`}&deg; {`${nightTempDisplay}`}&deg;</h3>
           </div>
           <img className="today_icon"></img>
         </div>

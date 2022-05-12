@@ -21,8 +21,8 @@ function SevenDayForecast() {
             <div className="seven_temp_icon">
               <p className="seven_today_temp">{
                 Values.tempScale === 'F' ?
-                  (Values.toFahrenheit(Values.weatherInfo.current.temp)) + ' F' :
-                  (Values.toCelsius(Values.weatherInfo.current.temp)) + 'C'}
+                  (Values.toFahrenheit(Values.weatherInfo.current.temp)) :
+                  (Values.toCelsius(Values.weatherInfo.current.temp))}&deg; {Values.tempScale}
               </p>
               <img src={`http://openweathermap.org/img/wn/${Values.weatherInfo.current.weather[0].icon}@2x.png`}></img>
               <p className="future_wind">

@@ -56,9 +56,9 @@ function EachHour(props) {
 
     dayTwo =
       <div className="hour_day">
-        <span class="time_det">{fullDays[getDayOfWeek(currentDay)]}, </span>
-        <span class="time_det hour_month">{months[getMonth(currentDay)]}</span>
-        <span class="time_det">{getDayOfMonth(currentDay)}</span>
+        <span className="time_det">{fullDays[getDayOfWeek(currentDay)]}, </span>
+        <span className="time_det hour_month">{months[getMonth(currentDay)]}</span>
+        <span className="time_det">{getDayOfMonth(currentDay)}</span>
         <div className="oneHr_container">
           {allHours}
         </div>
@@ -80,9 +80,9 @@ function EachHour(props) {
 
     dayThree =
       <div className="hour_day">
-        <span class="time_det">{fullDays[getDayOfWeek(currentDay)]}, </span>
-        <span class="time_det hour_month">{months[getMonth(currentDay)]}</span>
-        <span class="time_det">{getDayOfMonth(currentDay)}</span>
+        <span className="time_det">{fullDays[getDayOfWeek(currentDay)]}, </span>
+        <span className="time_det hour_month">{months[getMonth(currentDay)]}</span>
+        <span className="time_det">{getDayOfMonth(currentDay)}</span>
         <div className="oneHr_container">
           {allHours}
         </div>
@@ -101,6 +101,7 @@ function EachHour(props) {
             Values.tempScale === 'F' ?
               (Values.toFahrenheit(hour.temp)) :
               (Values.toCelsius(hour.temp))}
+              &deg;
           </p>
         </div>
         <div className="hour_three">
