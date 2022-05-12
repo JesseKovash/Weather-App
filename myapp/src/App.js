@@ -57,6 +57,7 @@ function App(props) {
   );
 
   const changeTempScale = function () {
+    console.log('changing temp')
     tempScale === 'F' ? setTempScale('C') : setTempScale('F');
   }
 
@@ -119,6 +120,7 @@ function App(props) {
         console.log(err)
       })
   }
+
   let valueObj = {
     currentLocation: currentLocation,
     weatherInfo: weatherInfo,
@@ -142,6 +144,7 @@ function App(props) {
         onLocationChange={onLocationChange}
         locations={locations}
         searchInput={searchInput}
+        changeTempScale={changeTempScale}
       />
       <LocationContext.Provider
         value={valueObj}

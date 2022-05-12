@@ -1,7 +1,10 @@
-body {
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+body {
   font-family: sans-serif;
   font-size: 62.5%;
 }
@@ -9,8 +12,8 @@ body {
 .topbar_container {
   background-color: #59516e;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
 .logo {
@@ -35,6 +38,8 @@ body {
 
 .search_container {
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 input {
@@ -57,9 +62,11 @@ input::placeholder {
   position: absolute;
   background-color: white;
   width: 100%;
+  top: 40px;
   margin-top: 5px;
   border-radius: 5px;
   box-shadow: 1px 1px 2px 1px lightgrey;
+  z-index: 1;
 }
 
 .location_option {
@@ -74,6 +81,17 @@ input::placeholder {
 .location_option:hover {
   background-color: blue;
   color: white;
+  cursor: pointer;
+}
+
+.c_or_f {
+  color: white;
+  font-weight: 300;
+  font-size: 1.2rem;
+  padding-right: 5%;
+}
+
+.c_f_choice:hover {
   cursor: pointer;
 }
 
@@ -123,6 +141,7 @@ input::placeholder {
   display: flex;
   align-items: center;
   flex-direction: column;
+  padding-top: 15px;
 }
 
 .today_header {

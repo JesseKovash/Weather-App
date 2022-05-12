@@ -6,9 +6,9 @@ function Topbar(props) {
   let displayedLocs = null;
   if (props.locations.length > 0) {
     displayedLocs = <div className="results_container">
-    {props.locations?.map((oneLoc) => {
-      return <div className="location_option" onClick={() => props.onLocationChange(oneLoc)}>{oneLoc.address}</div>
-    })}</div>
+      {props.locations?.map((oneLoc) => {
+        return <div className="location_option" onClick={() => props.onLocationChange(oneLoc)}>{oneLoc.address}</div>
+      })}</div>
   }
   return (
     <div className="topbar_container">
@@ -22,8 +22,8 @@ function Topbar(props) {
         {displayedLocs}
       </div>
       <div className="c_or_f">
-        <div className="celsius">C</div>
-        <div className="fahrenheit">F</div>
+        <span>US | &deg;</span>
+        <span className="c_f_choice" onClick={props.changeTempScale}>F</span>
       </div>
     </div>
   )

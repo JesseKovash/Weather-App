@@ -35,8 +35,8 @@ function TodaysForecast() {
         dayTempDisplay = `Day ${Values.toFahrenheit(data?.daily[0].temp.day)} `;
         nightTempDisplay = `Night ${Values.toFahrenheit(data?.daily[0].temp.night)}`;
       } else {
-        dayTempDisplay = `Day ${props.toCelsius(data?.daily[0].temp.day)} `;
-        nightTempDisplay = `Night ${props.toCelsius(data?.daily[0].temp.night)}`;
+        dayTempDisplay = `Day ${Values.toCelsius(data?.daily[0].temp.day)} `;
+        nightTempDisplay = `Night ${Values.toCelsius(data?.daily[0].temp.night)}`;
       }
     }
 
