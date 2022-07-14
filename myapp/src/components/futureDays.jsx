@@ -8,7 +8,7 @@ function FutureDays() {
   let dayDetails = null;
   if (nextSeven) {
     dayDetails = nextSeven.map((oneDay, index) => (
-      <div className="future_day">
+      <div className="future_day" key={oneDay.moonrise}>
         <div className="future_one">
           <p>{Values?.dayOptions?.weekDays[index + 1]} {Values?.dayOptions?.monthDays[index + 1]}</p>
         </div>
@@ -42,6 +42,7 @@ function FutureDays() {
           </span>
         </p>
       </div>
+
     ))
   }
 

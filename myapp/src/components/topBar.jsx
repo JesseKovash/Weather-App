@@ -19,7 +19,7 @@ function Topbar(props) {
   if (props.locations.length > 0) {
     displayedLocs = <div className="results_container">
       {props.locations?.map((oneLoc) => {
-        return <div className="location_option" onClick={() => props.onLocationChange(oneLoc)}>{oneLoc.address}</div>
+        return <div className="location_option" key={oneLoc.latitude} onClick={() => props.onLocationChange(oneLoc)}>{oneLoc.address}</div>
       })}</div>
   }
   return (
