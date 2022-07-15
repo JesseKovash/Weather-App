@@ -4,6 +4,7 @@ import { debounce } from "lodash";
 import SevenDayForecast from './components/sevenDay.jsx';
 import HourlyForecast from './components/hourly.jsx';
 import TodaysForecast from './components/today.jsx';
+import RadarMap from './components/radarMap.jsx';
 import Topbar from './components/topBar.jsx';
 import OptionsBar from './components/optionsBar.jsx';
 import {
@@ -19,6 +20,7 @@ function App(props) {
   const [today, setToday] = useState(true);
   const [hourly, setHourly] = useState(false);
   const [seven, setSeven] = useState(false);
+  const [radar, setRadar] = useState(false);
   const [currentLocation, setCurrentLocation] = useState(null);
   const [weatherInfo, setWeatherInfo] = useState(null);
   const [tempScale, setTempScale] = useState('F');
@@ -30,15 +32,23 @@ function App(props) {
 
   const changeDisplay = function (target) {
     if (target === 'today') {
+      setRadar(false)
       setSeven(false)
       setToday(true)
       setHourly(false)
     } else if (target === 'hourly') {
+      setRadar(false)
       setSeven(false)
       setToday(false)
       setHourly(true)
     } else if (target === 'seven') {
+      setRadar(false)
       setSeven(true)
+      setToday(false)
+      setHourly(false)
+    } else if (target === 'radar') {
+      setRadar(true)
+      setSeven(false)
       setToday(false)
       setHourly(false)
     }
@@ -121,19 +131,20 @@ function App(props) {
   }
 
   let valueObj = {
-    currentLocation: currentLocation,
-    weatherInfo: weatherInfo,
-    toFahrenheit: toFahrenheit,
-    toCelsius: toCelsius,
-    tempScale: tempScale,
-    dayOptions: dayOptions,
-    windDirection: windDirection,
-    windMPH: windMPH,
-    windKMH: windKMH,
-    today: today,
-    hourly: hourly,
-    seven: seven,
-    changeDisplay: changeDisplay
+    currentLocation,
+    weatherInfo,
+    toFahrenheit,
+    toCelsius,
+    tempScale,
+    dayOptions,
+    windDirection,
+    windMPH,
+    windKMH,
+    today,
+    hourly,
+    seven,
+    radar,
+    changeDisplay
   }
 
   return (
@@ -155,6 +166,7 @@ function App(props) {
           <SevenDayForecast />
           <HourlyForecast />
           <TodaysForecast />
+          <RadarMap />
         </div>
       </LocationContext.Provider >
     </div >
