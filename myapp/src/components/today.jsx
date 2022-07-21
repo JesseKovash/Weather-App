@@ -18,8 +18,8 @@ function TodaysForecast() {
 
     temp = data?.current?.temp || '';
     descriptionDisplay = data?.current?.weather[0].description || '';
-    const dayTemp = data?.daily[0].temp.day ?
-    data.daily[0].temp.day :
+    const dayTemp = data?.daily[0]?.temp?.day ?
+    data?.daily[0]?.temp?.day :
       '';
     const nightTemp = data?.daily[0].temp.night ?
     data.daily[0].temp.night :
@@ -41,7 +41,7 @@ function TodaysForecast() {
     }
 
     locInfo = `${Values.currentLocation.city}, ${Values.currentLocation.state}`;
-    timeInfo = `As of ${data.retrievedTime}`;
+    timeInfo = `As of ${data?.retrievedTime}`;
 
 
     today =

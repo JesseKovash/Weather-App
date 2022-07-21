@@ -17,7 +17,7 @@ function HourlyForecast() {
           <h2>Hourly Weather
             <span>-{Values.currentLocation.city}, {Values.currentLocation.state}</span>
           </h2>
-          <h3>As of {Values.weatherInfo.retrievedTime}</h3>
+          <h3>As of {Values.weatherInfo?.retrievedTime}</h3>
         </div>
         <EachHour hourlyDetails={hourlyDetails} />
       </div>

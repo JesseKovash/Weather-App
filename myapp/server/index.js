@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors')
 const axios = require('axios');
-const {weatherAccess} = require('../config.js');
+// const {weatherAccess} = require('../config.js');
 const {Geo} = require('../geocoder/geo.js')
 var app = express()
 app.use(cors())
@@ -68,8 +68,9 @@ const stateAbbrev = function(state) {
 app.get('/getWeather', (req, res) => {
   let lat = req.query.lat;
   let lon = req.query.lon;
+  console.log('lat: ', lat, '  lon: ', lon)
   axios.get(
-    `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${weatherAccess}`
+    `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=bc5478df38b07b39ed924f4b833a75ac`
   )
     .then((response)=>{
       return response.data
@@ -83,10 +84,8 @@ app.get('/getWeather', (req, res) => {
 })
 
 app.get('/location', (req, res) => {
-  // console.log('getting locations')
   Geo(req.query.searchTerm)
     .then((data)=> {
-      // console.log(data)
       let cityOptions = [];
 
       data.forEach((result) => {

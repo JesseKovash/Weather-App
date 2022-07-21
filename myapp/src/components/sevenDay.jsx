@@ -14,7 +14,7 @@ function SevenDayForecast() {
             <h2>7 Day Weather
               <span>-{Values.currentLocation.city}, {Values.currentLocation.state}</span>
             </h2>
-            <h3>As of {Values.weatherInfo.retrievedTime}</h3>
+            <h3>As of {Values.weatherInfo?.retrievedTime}</h3>
           </div>
           <div className="seven_today_details">
             <p className="seven_date">{Values?.dayOptions?.weekDays[0]} {Values?.dayOptions?.monthDays[0]}</p>
@@ -24,7 +24,7 @@ function SevenDayForecast() {
                   (Values.toFahrenheit(Values.weatherInfo.current.temp)) :
                   (Values.toCelsius(Values.weatherInfo.current.temp))}&deg; {Values.tempScale}
               </p>
-              <img src={`http://openweathermap.org/img/wn/${Values.weatherInfo.current.weather[0].icon}@2x.png`}></img>
+              <img src={`http://openweathermap.org/img/wn/${Values.weatherInfo?.current.weather[0].icon}@2x.png`}></img>
               <p className="future_wind">
                 <span className="future_dir">
                   {Values.windDirection(Values.weatherInfo.current.wind_deg) + " "}

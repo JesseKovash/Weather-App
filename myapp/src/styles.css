@@ -99,6 +99,75 @@ input::placeholder {
   background-color: #9E95B1;
   height: 40px;
   width: 100%;
+  display: flex;
+  color: white;
+  font-size: 0.9rem;
+  padding: 5px;
+  overflow: scroll;
+}
+
+.threedots_button {
+  background-color: transparent;
+  border: none;
+}
+
+.threedots_icon {
+  height: 22px;
+  stroke: white;
+}
+
+.threedots_icon:hover {
+  height: 25px;
+  cursor: pointer;
+}
+
+.delete_button {
+  border: none;
+  background-color: white;
+  padding: 8px 10px;
+  color: blue;
+  border-radius: 18px;
+  display: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.delete_button:hover {
+  cursor: pointer;
+}
+
+.one_past_location{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  min-width: 245px;
+  width: 20%;
+  overflow: hidden;
+  margin-right: 10px;
+}
+
+.past_loc_left {
+  display: flex;
+  align-items: center;
+}
+
+.past_loc_left:hover {
+  cursor: pointer;
+}
+
+.past_loc_right {
+
+}
+
+.past_loc_iconTemp {
+  display: flex;
+  align-items: center;
+  margin-right: 5px;
+}
+
+.past_loc_icon {
+  height: 30px;
 }
 
 .options_container {
@@ -321,6 +390,10 @@ h2 span {
   height: 100vh;
   width: 100%;
 }
+
+
+
+
 
 
 
