@@ -43,11 +43,27 @@ function App(props) {
   const [tempScale, setTempScale] = useState("F");
   const [dayOptions, setDayOptions] = useState(null);
   const initialLoad = useRef(true);
+  const options = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0
+  };
 
   useEffect(() => {
-    !localStorage.past_weather_locs || localStorage.past_weather_locs === ""
-      ? localStorage.setItem("past_weather_locs", JSON.stringify([]))
-      : setPastLocations(JSON.parse(localStorage.past_weather_locs));
+    //navigator to get users current location
+    // if (
+    //   !localStorage.past_weather_locs ||
+    //   localStorage.past_weather_locs === ""
+    // ) {
+    //   console.log('inside navigator')
+    //   localStorage.setItem("past_weather_locs", JSON.stringify([]));
+    //   navigator.geolocation.getCurrentPosition(successUserLocation, errorUserLocation, options);
+    // } else {
+    //   setPastLocations(JSON.parse(localStorage.past_weather_locs));
+    // }
+      !localStorage.past_weather_locs || localStorage.past_weather_locs === ""
+        ? localStorage.setItem("past_weather_locs", JSON.stringify([]))
+        : setPastLocations(JSON.parse(localStorage.past_weather_locs));
     getTime();
   }, []);
 
@@ -64,6 +80,19 @@ function App(props) {
   useEffect(() => {
     localStorage.setItem("past_weather_locs", JSON.stringify(pastLocations));
   }, [pastLocations]);
+
+  //success and error functions for navigator geolocation
+  // const successUserLocation = function (pos) {
+  //   console.log(pos)
+  //   const userLat = pos.coords.latitude;
+  //   const userLon = pos.coords.longitude;
+  //   getCurrentWeather(userLat, userLon)
+  // }
+
+  // const errorUserLocation = function (error) {
+  //   console.log('inside error')
+  //   console.log(error)
+  // }
 
   const changeDisplay = function (target) {
     if (target === "today") {
@@ -133,19 +162,18 @@ function App(props) {
   };
 
   const onLocationChange = function (locationData) {
-    getCurrentWeather(
-      locationData.latitude,
-      locationData.longitude
-    )
-    .then((results) => formatWeather(results, locationData, true))
+    getCurrentWeather(locationData.latitude, locationData.longitude).then(
+      (results) => formatWeather(results, locationData, true)
+    );
   };
 
   const getCurrentWeather = function (lat, lon) {
-    return fetch(`http://localhost:3001/getWeather/?lat=${lat}&lon=${lon}`)
-      .then((res) => res.json())
+    return fetch(
+      `http://localhost:3001/getWeather/?lat=${lat}&lon=${lon}`
+    ).then((res) => res.json());
   };
 
-  const formatWeather = function(oneWeather, locationData, isNew) {
+  const formatWeather = function (oneWeather, locationData, isNew) {
     let time = new Date();
     let hours = time.getHours();
     let minutes = time.getMinutes();
@@ -172,22 +200,25 @@ function App(props) {
       changeDisplay("today");
     } else {
       //initial render from saved cities
-      return oneWeather
+      return oneWeather;
     }
-  }
+  };
 
   const getWeatherAllLocations = function () {
-    console.log('inside getweather all locs')
     initialLoad.current = false;
     Promise.all(
       pastLocations.map((oneLoc) =>
         getCurrentWeather(oneLoc.latitude, oneLoc.longitude, oneLoc, false)
       )
     )
-      .then((rawWeather)=> rawWeather.map((oneLocWeather, index) => formatWeather(oneLocWeather, null, false)))
-      .then((finalData)=> {
+      .then((rawWeather) =>
+        rawWeather.map((oneLocWeather, index) =>
+          formatWeather(oneLocWeather, null, false)
+        )
+      )
+      .then((finalData) => {
         setCurrentLocation(pastLocations[0]);
-        setPastLocationWeather(finalData)
+        setPastLocationWeather(finalData);
         setWeatherInfo(finalData[0]);
       })
       .catch((e) => console.log(e));
