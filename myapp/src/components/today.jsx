@@ -47,13 +47,12 @@ function TodaysForecast() {
     today =
       <div className="today_container">
         <header className="today_header">
-          <span>{locInfo}</span><span className="today_time">{timeInfo}</span>
+          <p>{locInfo}</p><p className="today_time">{timeInfo}</p>
         </header>
         <div className="today_details_container">
           <div className="today_details">
             <h2 className="today_temp">{tempDisplay}&deg;</h2>
             <h3 className="today_desc">{descriptionDisplay}</h3>
-            {/* <h3 className="today_hilo">{`${dayTempDisplay} ${nightTempDisplay}`}</h3> */}
             <h3 className="today_hilo">{`${dayTempDisplay}`}&deg; {`${nightTempDisplay}`}&deg;</h3>
           </div>
           <img className="today_icon"></img>

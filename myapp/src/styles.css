@@ -106,6 +106,10 @@ input::placeholder {
   overflow: scroll;
 }
 
+.past_locations_container::-webkit-scrollbar {
+  display: none;
+}
+
 .threedots_button {
   background-color: transparent;
   border: none;
@@ -124,12 +128,13 @@ input::placeholder {
 .delete_button {
   border: none;
   background-color: white;
-  padding: 8px 10px;
+  padding: 8px 15px;
   color: blue;
   border-radius: 18px;
   display: none;
   font-size: 0.9rem;
   font-weight: 500;
+  margin-right: 10px;
 }
 
 .delete_button:hover {
@@ -141,10 +146,11 @@ input::placeholder {
   align-items: center;
   justify-content: space-between;
   height: 100%;
-  min-width: 245px;
+  min-width: 300px;
   width: 20%;
   overflow: hidden;
   margin-right: 10px;
+  border-right: 1px solid white;
 }
 
 .past_loc_left {
@@ -154,10 +160,6 @@ input::placeholder {
 
 .past_loc_left:hover {
   cursor: pointer;
-}
-
-.past_loc_right {
-
 }
 
 .past_loc_iconTemp {
@@ -221,6 +223,10 @@ input::placeholder {
   line-height: 50px;
 }
 
+.today_header p {
+  display: inline-block;
+}
+
 .today_time {
   font-size: 1.2rem;
   font-weight: 300;
@@ -256,6 +262,7 @@ span {
   border-radius: 10px;
   width: 60%;
   padding: 15px;
+  box-shadow: 0 1px 9px 1px #9395b1;
 }
 
 .seven_top_container, .hourly_top {
@@ -318,12 +325,14 @@ h2 span {
   display: flex;
   align-items: center;
   border-top: 1px solid #59516e;
+  min-height: 72px;
 }
 
 .future_one, .hour_one {
   font-size: 1rem;
   font-weight: 200;
   width: 10%;
+  min-width: 75px;
 }
 
 .hour_one {
@@ -340,7 +349,8 @@ h2 span {
 }
 
 .future_two, .hour_two {
-  width: 10%;
+  min-width: 10%;
+  max-width: 15%;
   display: flex;
   align-items: center;
 }
@@ -358,7 +368,12 @@ h2 span {
 }
 
 .future_four, .hour_four {
-  width: 50%;
+  min-width: 35%;
+}
+
+.future_hr .hour_wind {
+  min-width: 30%;
+
 }
 
 .future_wind, .hour_wind {
@@ -368,6 +383,9 @@ h2 span {
 
 .future_dir, .hour_wind {
   margin-right: 5px;
+}
+.future_dir, .future_speed, .hour_dir, .hour_speed {
+  display: inline;
 }
 
 .hour_day {
@@ -391,8 +409,197 @@ h2 span {
   width: 100%;
 }
 
+.past_loc_temp, .past_loc_cityState {
+  white-space: nowrap;
+}
+
+.past_loc_cityState {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 100px;
+}
 
 
+/* Media Queries */
+
+/* ******1050px breakpoint******* */
+
+@media (max-width: 1050px) {
+  .hour_icon {
+    height: 50px;
+  }
+
+  .future_icon {
+    height: 50px;
+  }
+}
+
+/* ******800px breakpoint******* */
+
+@media (max-width: 800px) {
+  .seven_today_temp {
+    font-size: 2.1rem;
+  }
+
+  .today_header {
+    color: white;
+    font-size: 1.2rem;
+  }
+
+  .today_time {
+    font-size: 0.9rem;
+    font-weight: 300;
+  }
+
+  .today_details h3 {
+    font-size: 1.5rem;
+  }
+
+  .future_day {
+    min-height: 60px;
+  }
+
+  .future_one, .hour_one {
+    font-size: 0.8rem;
+  }
+
+  .hi_temp {
+    font-size: 1rem;
+  }
+
+  .low_temp {
+    font-size: 0.8rem;
+  }
+
+  .hour_day {
+    font-size: 1rem;
+  }
+
+  .hour_icon, .future_icon {
+    height: 38px;
+  }
+
+  .future_desc, .hour_desc {
+    font-size: 0.8rem;
+  }
+
+  .future_wind, .hour_wind {
+    font-size: 0.8rem;
+  }
+
+  .one_past_location {
+    min-width: 260px;
+  }
+
+  .delete_button {
+    padding: 8px 10px;
+  }
+}
+
+/* ******600px breakpoint******* */
+
+@media (max-width: 600px) {
+
+  .one_past_location {
+    min-width: 240px;
+  }
+
+  .today_container, .hourly_container, .seven_container {
+    width: 80%;
+  }
+
+  input {
+    width: 275px;
+    text-indent: 30px;
+  }
+
+  .option {
+    padding: 0 30px 3px 30px;
+  }
+
+  .seven_date {
+    margin: 20px 0 5px 0;
+  }
+  .seven_today_desc {
+    margin-bottom: 20px;
+  }
+}
+
+/* ******475px breakpoint******* */
+
+@media (max-width: 475px) {
+
+  .one_past_location {
+    min-width: 220px;
+  }
+
+  .delete_button {
+    padding: 5px 7px;
+    font-size: 0.8rem;
+  }
+
+  .past_loc_temp, .past_loc_cityState {
+    font-size: 0.75rem;
+  }
+
+  .today_container, .hourly_container, .seven_container {
+    width: 90%;
+  }
+
+  .today_header {
+    min-height: 75px;
+  }
+
+  .today_header p {
+    display: block;
+    line-height: 2;
+  }
+
+  .future_four, .hour_four {
+    margin-left: 10px;
+  }
+
+  .future_one, .hour_one {
+    min-width: 65px;
+  }
+
+  .future_dir, .future_speed, .hour_dir, .hour_speed {
+    display: block;
+  }
+
+  .option {
+    padding: 0 20px 3px 20px;
+  }
+
+  input {
+    width: 215px;
+    text-indent: 30px;
+  }
+
+  .logo {
+    height: 45px;
+    width: 45px;
+  }
+
+  .logo_p {
+    height: auto;
+    margin-top: 0;
+    padding-left: 2px;
+    font-size: 0.65rem;
+  }
+
+  .logo_p:first-child {
+    margin-top: 5px;
+  }
+
+  input::placeholder {
+    font-size: 0.9rem;
+  }
+
+  .c_or_f {
+    font-size: 0.9rem;
+  }
+}
 
 
 

@@ -2,9 +2,6 @@ import React, { useContext } from "react";
 import { hot } from 'react-hot-loader/root';
 import { LocationContext } from '../App.js';
 import EachHour from './eachHour.jsx';
-// import {
-//   days, getDayOfWeek, getDayOfMonth, getMonth, getYear, getFutureWeekdays, getFutureMonthDays, numberOfDays, isLeapYear
-// } from './../calcTime.js';
 
 function HourlyForecast() {
   const Values = useContext(LocationContext);

@@ -111,16 +111,16 @@ function EachHour(props) {
           <p className="hour_desc">{hour.weather[0].description}</p>
         </div>
 
-        <p className="hour_wind">
-          <span className="hour_dir">
+        <div className="hour_wind">
+          <p className="hour_dir">
             {`${Values.windDirection(hour.wind_deg)}  `}
-          </span>
-          <span className="hour_speed">{
+          </p>
+          <p className="hour_speed">{
             Values.tempScale === 'F' ?
               (Values.windMPH(hour.wind_speed) + ' mph') :
               (Values.windKMH(hour.wind_speed) + ' kmh')}
-          </span>
-        </p>
+          </p>
+        </div>
       </div>
     )
   }

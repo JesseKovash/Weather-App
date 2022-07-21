@@ -31,16 +31,16 @@ function FutureDays() {
           <p className="future_desc">{oneDay.weather[0].description}</p>
         </div>
 
-        <p className="future_wind">
-          <span className="future_dir">
+        <div className="future_wind">
+          <p className="future_dir">
             {`${Values.windDirection(oneDay.wind_deg)}  `}
-          </span>
-          <span className="future_speed">{
+          </p>
+          <p className="future_speed">{
             Values.tempScale === 'F' ?
               (Values.windMPH(oneDay.wind_speed) + ' mph') :
               (Values.windKMH(oneDay.wind_speed) + ' kmh')}
-          </span>
-        </p>
+          </p>
+        </div>
       </div>
 
     ))
