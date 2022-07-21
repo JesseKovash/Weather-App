@@ -1,7 +1,6 @@
 const express = require('express');
 const cors = require('cors')
 const axios = require('axios');
-// const {weatherAccess} = require('../config.js');
 const {Geo} = require('../geocoder/geo.js')
 var app = express()
 app.use(cors())

@@ -44,7 +44,6 @@ function App(props) {
   const [dayOptions, setDayOptions] = useState(null);
   const initialLoad = useRef(true);
 
-  //should be correct
   useEffect(() => {
     !localStorage.past_weather_locs || localStorage.past_weather_locs === ""
       ? localStorage.setItem("past_weather_locs", JSON.stringify([]))
@@ -52,7 +51,6 @@ function App(props) {
     getTime();
   }, []);
 
-  //should be correct
   useEffect(() => {
     if (initialLoad.current) {
       if (pastLocations.length > 0) {
@@ -63,7 +61,6 @@ function App(props) {
     }
   });
 
-  //should be correct
   useEffect(() => {
     localStorage.setItem("past_weather_locs", JSON.stringify(pastLocations));
   }, [pastLocations]);
