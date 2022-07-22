@@ -6,7 +6,7 @@ const {Geo} = require('../geocoder/geo.js')
 const app = express()
 app.use(express.static(path.resolve(__dirname, '../dist')))
 app.use(cors())
-const port = 3001
+const port = process.env.PORT || 3001;
 
 const abbreviations = {
   Alabama: 'AL',
