@@ -1,8 +1,10 @@
 const express = require('express');
+const path = require('path');
 const cors = require('cors')
 const axios = require('axios');
 const {Geo} = require('../geocoder/geo.js')
-var app = express()
+const app = express()
+app.use(express.static(path.resolve(__dirname, '../dist')))
 app.use(cors())
 const port = 3001
 
@@ -67,7 +69,6 @@ const stateAbbrev = function(state) {
 app.get('/getWeather', (req, res) => {
   let lat = req.query.lat;
   let lon = req.query.lon;
-  console.log('lat: ', lat, '  lon: ', lon)
   axios.get(
     `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=bc5478df38b07b39ed924f4b833a75ac`
   )
@@ -111,5 +112,5 @@ app.get('/location', (req, res) => {
 })
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`App listening on port ${port}`)
 })
