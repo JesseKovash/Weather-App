@@ -148,7 +148,8 @@ function App(props) {
   };
 
   const getLocations = function (cityInfo) {
-    fetch(`/location/?searchTerm=${cityInfo}`)
+    // fetch(`/location/?searchTerm=${cityInfo}`)
+    fetch(`http://localhost:3001/location/?searchTerm=${cityInfo}`)
       .then((res) => {
         return res.json();
       })
@@ -167,8 +168,11 @@ function App(props) {
   };
 
   const getCurrentWeather = function (lat, lon) {
+    // return fetch(
+    //   `/getWeather/?lat=${lat}&lon=${lon}`
+    // ).then((res) => res.json());
     return fetch(
-      `/getWeather/?lat=${lat}&lon=${lon}`
+      `http://localhost:3001/getWeather/?lat=${lat}&lon=${lon}`
     ).then((res) => res.json());
   };
 
@@ -228,16 +232,14 @@ function App(props) {
     updatedLocationList.splice(index, 1);
     const updatedWeatherList = [...pastLocationWeather];
     updatedWeatherList.splice(index, 1);
-    console.log('past Locations: ', updatedLocationList);
-    console.log('past Weather: ', updatedWeatherList)
     setPastLocations(updatedLocationList);
     setPastLocationWeather(updatedWeatherList);
     if (
       pastLocations[index].latitude === currentLocation.latitude &&
       pastLocations[index].longitude === currentLocation.longitude
     ) {
-      setCurrentLocation(updatedLocationList[0]);
-      setWeatherInfo(updatedWeatherList[0]);
+      setCurrentLocation(updatedLocationList[0] || null);
+      setWeatherInfo(updatedWeatherList[0] || null);
     }
   };
 
@@ -288,5 +290,4 @@ function App(props) {
   );
 }
 
-// export default hot(App);
 export default App;

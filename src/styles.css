@@ -405,8 +405,8 @@ h2 span {
 }
 
 .leaflet-container {
-  height: 100vh;
-  width: 100%;
+  height: 100%;
+  width: 100vw;
 }
 
 .past_loc_temp, .past_loc_cityState {
