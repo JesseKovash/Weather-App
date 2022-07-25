@@ -1,5 +1,5 @@
 import React, { useContext, useRef } from "react";
-import { hot } from "react-hot-loader/root";
+// import { hot } from "react-hot-loader/root";
 import { LocationContext } from "../App.js";
 import "animate.css";
 

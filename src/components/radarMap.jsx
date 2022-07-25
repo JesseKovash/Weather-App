@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect, useRef} from "react";
-import { hot } from "react-hot-loader/root";
+// import { hot } from "react-hot-loader/root";
 import { LocationContext } from "../App.js";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 

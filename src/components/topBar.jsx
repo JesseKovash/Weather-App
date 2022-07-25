@@ -1,5 +1,5 @@
 import React, { useRef, useEffect }from "react";
-import { hot } from 'react-hot-loader/root';
+// import { hot } from 'react-hot-loader/root';
 
 function Topbar(props) {
   let initialRender = useRef(true);
