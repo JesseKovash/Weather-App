@@ -7,6 +7,7 @@ const app = express()
 app.use(express.static(path.resolve(__dirname, '../dist')))
 app.use(cors())
 const port = process.env.PORT || 3001;
+console.log(port)
 
 const abbreviations = {
   Alabama: 'AL',

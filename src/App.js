@@ -5,7 +5,6 @@ import React, {
   useEffect,
   useRef,
 } from "react";
-// import { hot } from "react-hot-loader/root";
 import { debounce } from "lodash";
 import SevenDayForecast from "./components/sevenDay.jsx";
 import HourlyForecast from "./components/hourly.jsx";
@@ -229,6 +228,8 @@ function App(props) {
     updatedLocationList.splice(index, 1);
     const updatedWeatherList = [...pastLocationWeather];
     updatedWeatherList.splice(index, 1);
+    console.log('past Locations: ', updatedLocationList);
+    console.log('past Weather: ', updatedWeatherList)
     setPastLocations(updatedLocationList);
     setPastLocationWeather(updatedWeatherList);
     if (

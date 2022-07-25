@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-// import { hot } from 'react-hot-loader/root';
 import { LocationContext } from '../App.js';
 import FutureDays from './futureDays.jsx'
 
