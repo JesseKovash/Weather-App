@@ -149,7 +149,7 @@ function App(props) {
   };
 
   const getLocations = function (cityInfo) {
-    fetch(`http://localhost:3001/location/?searchTerm=${cityInfo}`)
+    fetch(`/location/?searchTerm=${cityInfo}`)
       .then((res) => {
         return res.json();
       })
@@ -169,7 +169,7 @@ function App(props) {
 
   const getCurrentWeather = function (lat, lon) {
     return fetch(
-      `http://localhost:3001/getWeather/?lat=${lat}&lon=${lon}`
+      `/getWeather/?lat=${lat}&lon=${lon}`
     ).then((res) => res.json());
   };
 
