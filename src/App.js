@@ -45,7 +45,7 @@ function App(props) {
   const options = {
     enableHighAccuracy: true,
     timeout: 5000,
-    maximumAge: 0
+    maximumAge: 0,
   };
 
   useEffect(() => {
@@ -60,9 +60,9 @@ function App(props) {
     // } else {
     //   setPastLocations(JSON.parse(localStorage.past_weather_locs));
     // }
-      !localStorage.past_weather_locs || localStorage.past_weather_locs === ""
-        ? localStorage.setItem("past_weather_locs", JSON.stringify([]))
-        : setPastLocations(JSON.parse(localStorage.past_weather_locs));
+    !localStorage.past_weather_locs || localStorage.past_weather_locs === ""
+      ? localStorage.setItem("past_weather_locs", JSON.stringify([]))
+      : setPastLocations(JSON.parse(localStorage.past_weather_locs));
     getTime();
   }, []);
 
@@ -149,7 +149,7 @@ function App(props) {
 
   const getLocations = function (cityInfo) {
     fetch(`/location/?searchTerm=${cityInfo}`)
-    // fetch(`http://localhost:3001/location/?searchTerm=${cityInfo}`)
+      // fetch(`http://localhost:3001/location/?searchTerm=${cityInfo}`)
       .then((res) => {
         return res.json();
       })
@@ -168,9 +168,9 @@ function App(props) {
   };
 
   const getCurrentWeather = function (lat, lon) {
-    return fetch(
-      `/getWeather/?lat=${lat}&lon=${lon}`
-    ).then((res) => res.json());
+    return fetch(`/getWeather/?lat=${lat}&lon=${lon}`).then((res) =>
+      res.json()
+    );
     // return fetch(
     //   `http://localhost:3001/getWeather/?lat=${lat}&lon=${lon}`
     // ).then((res) => res.json());
@@ -268,17 +268,19 @@ function App(props) {
 
   return (
     <div className="app_container">
-      <Topbar
-        handleChange={handleChange}
-        onLocationChange={onLocationChange}
-        locations={locations}
-        searchInput={searchInput}
-        tempScale={tempScale}
-        changeTempScale={changeTempScale}
-      />
       <LocationContext.Provider value={valueObj}>
-        <PastLocations />
-        <OptionsBar />
+        <div className="header-main">
+          <Topbar
+            handleChange={handleChange}
+            onLocationChange={onLocationChange}
+            locations={locations}
+            searchInput={searchInput}
+            tempScale={tempScale}
+            changeTempScale={changeTempScale}
+          />
+          <PastLocations />
+          <OptionsBar />
+        </div>
         <div className="bottom_container">
           <SevenDayForecast />
           <HourlyForecast />

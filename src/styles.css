@@ -9,6 +9,14 @@ body {
   font-size: 62.5%;
 }
 
+.header-main {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1001;
+}
+
 .topbar_container {
   background-color: #59516e;
   display: flex;
@@ -212,7 +220,7 @@ input::placeholder {
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding-top: 15px;
+  padding-top: 175px;
 }
 
 .today_header {
@@ -528,6 +536,10 @@ h2 span {
 /* ******475px breakpoint******* */
 
 @media (max-width: 475px) {
+
+  .bottom_container {
+    padding-top: 160px;
+  }
 
   .one_past_location {
     min-width: 220px;
