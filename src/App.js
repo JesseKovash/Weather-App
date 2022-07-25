@@ -5,7 +5,7 @@ import React, {
   useEffect,
   useRef,
 } from "react";
-import { hot } from "react-hot-loader/root";
+// import { hot } from "react-hot-loader/root";
 import { debounce } from "lodash";
 import SevenDayForecast from "./components/sevenDay.jsx";
 import HourlyForecast from "./components/hourly.jsx";
@@ -287,4 +287,5 @@ function App(props) {
   );
 }
 
-export default hot(App);
+// export default hot(App);
+export default App;
