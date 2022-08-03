@@ -340,7 +340,7 @@ h2 span {
   font-size: 1rem;
   font-weight: 200;
   width: 10%;
-  min-width: 75px;
+  min-width: 60px;
 }
 
 .hour_one {
@@ -357,10 +357,12 @@ h2 span {
 }
 
 .future_two, .hour_two {
-  min-width: 10%;
-  max-width: 15%;
+  /* min-width: 10%;
+  max-width: 15%; */
   display: flex;
   align-items: center;
+  width: 15%;
+  flex-wrap: wrap;
 }
 
 .future_three, .hour_three {
@@ -376,7 +378,10 @@ h2 span {
 }
 
 .future_four, .hour_four {
-  min-width: 35%;
+  /* min-width: 35%; */
+  width: 35%;
+  padding: 0 5px;
+
 }
 
 .future_hr .hour_wind {
@@ -567,13 +572,13 @@ h2 span {
     line-height: 2;
   }
 
-  .future_four, .hour_four {
+  /* .future_four, .hour_four {
     margin-left: 10px;
-  }
+  } */
 
-  .future_one, .hour_one {
+  /* .future_one, .hour_one {
     min-width: 65px;
-  }
+  } */
 
   .future_dir, .future_speed, .hour_dir, .hour_speed {
     display: block;
